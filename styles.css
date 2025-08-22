@@ -1,0 +1,184 @@
+/*Reset*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Kumbh Sans", sans-serif;
+  background-color: hsl(185, 75%, 39%);
+  background-image: url("./assets/bg-pattern-top.svg"),
+    url("./assets/bg-pattern-bottom.svg");
+  background-repeat: no-repeat, no-repeat;
+  background-position: right 50vw bottom 50vh, left 50vw top 50vh;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.5;
+  color: var(--clr-text);
+}
+
+/* Design tokens*/
+:root {
+  --clr-primary: hsl(185, 75%, 39%);
+  --clr-dark: hsl(229, 23%, 23%);
+  --clr-muted: hsl(227, 10%, 46%);
+  --clr-border: hsl(0, 0%, 90%);
+  --clr-accent: #8368b6;
+
+  --clr-card-bg: #fff;
+  --clr-link-bg: #2a3037;
+  --clr-link-text: #f5f5f5;
+  --clr-link-highlight: #8368b6;
+
+  --radius: 15px;
+  --shadow: 0 15px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Card */
+.card {
+  background-color: var(--clr-card-bg);
+  border-radius: var(--radius);
+  overflow: hidden;
+  max-width: 350px;
+  width: 100%;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+
+/* Header con imagen */
+.card__header img {
+  width: 100%;
+  display: block;
+}
+
+/* Avatar */
+.card__profile {
+  display: flex;
+  justify-content: center;
+  margin-top: -48px;
+}
+
+.card__profile img {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  border: 5px solid var(--clr-card-bg);
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Info básica */
+.card__info {
+  padding: 0.5rem 1rem;
+}
+
+.card__info h1 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--clr-dark);
+  margin: 0.25rem 0;
+}
+
+.card__info h1 span {
+  font-weight: 400;
+  color: var(--clr-muted);
+  margin-left: 0.5rem;
+}
+
+.card__info p {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--clr-accent);
+  margin: 0.5rem 0 0;
+}
+
+/* Descripción */
+.card__description p {
+  font-size: 0.9rem;
+  color: var(--clr-muted);
+  margin: 0.5rem 0 0;
+}
+/* Links */
+nav[aria-label="Perfiles y enlaces"] {
+  /* margin: 1rem 0; */
+  padding: 20px 20px 30px 20px;
+}
+
+.links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.links a {
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  background: transparent; /* neutro de entrada */
+  color: var(--clr-dark); /* texto oscuro */
+  border: 1px solid var(--clr-border); /* solo borde gris suave */
+  transition: transform 0.15s ease, background-color 0.15s ease,
+    color 0.15s ease;
+}
+
+/* Hover y focus: recién aquí el color */
+.links a:hover,
+.links a:focus-visible {
+  background: var(--clr-link-highlight); /* tu color acento */
+  color: #fff; /* contraste en hover */
+  transform: translateY(-2px);
+  border-color: var(--clr-link-highlight);
+}
+
+/* Active (clic) */
+.links a:active {
+  transform: translateY(0);
+}
+
+/* Foco accesible (además del hover) */
+.links a:focus-visible,
+.skip:focus-visible {
+  outline: 3px solid #88c6ff;
+  outline-offset: 3px;
+}
+
+/* Foco accesible */
+.links a:focus-visible,
+.skip:focus-visible {
+  outline: 3px solid #88c6ff;
+  outline-offset: 3px;
+}
+
+/* Animaciones opcionales */
+@media (prefers-reduced-motion: reduce) {
+  .links a {
+    transition: none;
+  }
+}
+
+/* Utilidad para ocultar visualmente */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
